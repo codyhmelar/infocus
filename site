@@ -1,0 +1,783 @@
+
+<!DOCTYPE html><html><head><script>!(function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1619126221749999");
+      fbq("track", "PageView");</script><noscript><img height=1 width=1 style=display:none src="https://www.facebook.com/tr?id=1619126221749999&ev=PageView&noscript=1"></noscript><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,minimal-ui,maximum-scale=1"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-title content="Anima Prototype"><link rel=apple-touch-icon href=https://animaapp.s3.amazonaws.com/home/previews/webapp-icon-180.png><title>Anima</title><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script><link rel="shortcut icon" type=image/png href=https://animaapp.s3.amazonaws.com/home/favicon.png><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.3.1/css/all.css integrity=sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU crossorigin=anonymous><script src=https://cdnjs.cloudflare.com/ajax/libs/postscribe/2.0.8/postscribe.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js></script><script src=https://cdn.ravenjs.com/3.26.2/raven.min.js crossorigin=anonymous></script><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel=stylesheet><style type=text/css>@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+      .highlighted:before {
+        border: 2px solid yellow;
+        border-radius: 100px;
+      }
+
+      button:focus {
+        outline: 0;
+      }
+      input:focus {
+        outline: 0;
+      }
+      textarea:focus {
+        outline: 0;
+      }
+      div:focus {
+        outline: 0;
+      }
+      img:focus {
+        outline: 0;
+      }
+      span:focus {
+        outline: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      .grecaptcha-badge {
+        width: 70px !important;
+        display: none;
+        overflow: hidden !important;
+        transition: all 0.3s ease !important;
+        left: 4px !important;
+      }
+
+      .grecaptcha-badge:hover {
+        width: 256px !important;
+      }
+
+      #app {
+        font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica !important;
+        height: 100%;
+      }
+
+      .el-checkbox__label {
+        font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica !important;
+        font-size: 12px !important;
+        font-weight: 300 !important;
+      }
+
+      .el-input__inner {
+        height: 32px !important;
+        border-radius: 2px !important;
+        font-size: 14px !important;
+      }
+
+      .el-input--mini .el-input__icon {
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .el-icon-more-outline {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 4'><g fill='%2366727F' fill-rule='evenodd'><circle cx='14' cy='2' r='2'/><circle cx='8' cy='2' r='2'/><circle cx='2' cy='2' r='2'/></g></svg>");
+        width: 16px !important;
+        height: 16px !important;
+      }
+
+      .el-icon-more-outline:before {
+        content: "" !important;
+      }
+
+      .el-card.is-always-shadow {
+        -webkit-box-shadow: 0px 1px 4px 0 rgba(148, 148, 148, 0.4) !important;
+        box-shadow: 0px 1px 4px 0 rgba(148, 148, 148, 0.4) !important;
+      }
+
+      .el-card {
+        border: 0px !important;
+      }
+
+      .project-box-card .el-card__body {
+        padding: 0;
+      }
+
+      .screen-box-card .el-card__body {
+        padding: 0;
+      }
+
+      * {
+        font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .CodeMirror * {
+        font-family: monospace !important;
+        font-size: 12px !important;
+      }
+
+      .icon-btn span {
+        font-size: 12px;
+      }
+
+      .anima-primary {
+        color: white !important;
+        border-radius: 2px !important;
+        border: 0 !important;
+        font-size: 14px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica !important;
+        line-height: 16px !important;
+        background-color: #4254ff !important;
+        padding: 8px 16px !important;
+        letter-spacing: 0.3px !important;
+        height: 32px !important;
+      }
+
+      .anima-secondary {
+        color: #272833 !important;
+        border-radius: 2px !important;
+        border: 0 !important;
+        font-size: 14px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica !important;
+        line-height: 16px !important;
+        background-color: #e4e6ea !important;
+        padding: 8px 16px !important;
+        letter-spacing: 0.3px !important;
+        height: 32px !important;
+      }
+
+      .anima-secondary:hover {
+        color: #272833 !important;
+        background-color: #d6dadd !important;
+      }
+
+      .anima-secondary:active {
+        color: #272833 !important;
+        background-color: #c1c7cd !important;
+      }
+
+      .anima-primary img {
+        margin: auto;
+        margin-right: 8px !important;
+      }
+
+      .anima-primary:hover {
+        background-color: #3049d2 !important;
+      }
+
+      .anima-primary:active {
+        background-color: #283cb3 !important;
+      }
+
+      .anima-tag {
+        height: 23px !important;
+        background-color: rgba(1, 1, 1, 0) !important;
+        color: #fbb000 !important;
+        font-size: 12px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica !important;
+        border-color: #fbb000 !important;
+        padding: 4px 8px !important;
+        line-height: 13px !important;
+        font-weight: 500 !important;
+        border-radius: 2px !important;
+      }
+
+      .anima-link-button:hover {
+        text-decoration: underline;
+      }
+
+      .anima-link-button {
+        text-decoration: none;
+      }
+
+      .anima-card-cover {
+        border-bottom: solid 1px #dcdfe6;
+      }
+
+      .el-header {
+        padding: 0 16px !important;
+      }
+
+      .el-message-box-width-auto {
+        width: auto !important;
+      }
+
+      #HW_frame_cont {
+        z-index: 99999;
+      }</style><script>(function(e, a) {
+        if (!a.__SV) {
+          var b = window;
+          try {
+            var c,
+              l,
+              i,
+              j = b.location,
+              g = j.hash;
+            c = function(a, b) {
+              return (l = a.match(RegExp(b + "=([^&]*)"))) ? l[1] : null;
+            };
+            g &&
+              c(g, "state") &&
+              ((i = JSON.parse(decodeURIComponent(c(g, "state")))),
+              "mpeditor" === i.action &&
+                (b.sessionStorage.setItem("_mpcehash", g),
+                history.replaceState(
+                  i.desiredHash || "",
+                  e.title,
+                  j.pathname + j.search
+                )));
+          } catch (m) {}
+          var k, h;
+          window.mixpanel = a;
+          a._i = [];
+          a.init = function(b, c, f) {
+            function e(b, a) {
+              var c = a.split(".");
+              2 == c.length && ((b = b[c[0]]), (a = c[1]));
+              b[a] = function() {
+                b.push([a].concat(Array.prototype.slice.call(arguments, 0)));
+              };
+            }
+            var d = a;
+            "undefined" !== typeof f ? (d = a[f] = []) : (f = "mixpanel");
+            d.people = d.people || [];
+            d.toString = function(b) {
+              var a = "mixpanel";
+              "mixpanel" !== f && (a += "." + f);
+              b || (a += " (stub)");
+              return a;
+            };
+            d.people.toString = function() {
+              return d.toString(1) + ".people (stub)";
+            };
+            k = "disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(
+              " "
+            );
+            for (h = 0; h < k.length; h++) e(d, k[h]);
+            a._i.push([b, c, f]);
+          };
+          a.__SV = 1.2;
+          b = e.createElement("script");
+          b.type = "text/javascript";
+          b.async = !0;
+          b.src =
+            "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL
+              ? MIXPANEL_CUSTOM_LIB_URL
+              : "file:" === e.location.protocol &&
+                "//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)
+              ? "https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js"
+              : "//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js";
+          c = e.getElementsByTagName("script")[0];
+          c.parentNode.insertBefore(b, c);
+        }
+      })(document, window.mixpanel || []);
+      mixpanel.init("b0e73daa3c5bf70fb1ae7c179668f2a5");</script><link href=/static/css/app.d6b24c2e.css rel=preload as=style><link href=/static/css/chunk-vendors.45fd4b34.css rel=preload as=style><link href=/static/js/app.0c5a48bf.js rel=preload as=script><link href=/static/js/chunk-vendors.87c230d4.js rel=preload as=script><link href=/static/css/chunk-vendors.45fd4b34.css rel=stylesheet><link href=/static/css/app.d6b24c2e.css rel=stylesheet></head><body><div id=app></div><script>var sc_project = 11683448;
+      var sc_invisible = 1;
+      var sc_security = "1c07bdf3";
+      var sc_https = 1;</script><script src=https://www.statcounter.com/counter/counter.js async></script><script>window.intercomSettings = {
+        app_id: "id43h9l8"
+      };</script><script>(function() {
+        var w = window;
+        var ic = w.Intercom;
+        if (typeof ic === "function") {
+          ic("reattach_activator");
+          ic("update", intercomSettings);
+        } else {
+          var d = document;
+          var i = function() {
+            i.c(arguments);
+          };
+          i.q = [];
+          i.c = function(args) {
+            i.q.push(args);
+          };
+          w.Intercom = i;
+          function l() {
+            var s = d.createElement("script");
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://widget.intercom.io/widget/id43h9l8";
+            var x = d.getElementsByTagName("script")[0];
+            x.parentNode.insertBefore(s, x);
+          }
+          if (w.attachEvent) {
+            w.attachEvent("onload", l);
+          } else {
+            w.addEventListener("load", l, false);
+          }
+        }
+      })();</script><script>(function() {
+        function generateUUID() {
+          var d = new Date().getTime();
+          if (
+            typeof performance !== "undefined" &&
+            typeof performance.now === "function"
+          ) {
+            d += performance.now(); //use high-precision timer if available
+          }
+          return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+            /[xy]/g,
+            function(c) {
+              var r = (d + Math.random() * 16) % 16 | 0;
+              d = Math.floor(d / 16);
+              return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+            }
+          );
+        }
+
+        function createCookie(name, value, days) {
+          var expires;
+          if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toGMTString();
+          } else {
+            expires = "";
+          }
+          document.cookie =
+            name + "=" + value + expires + "; path=/;domain=animaapp.com";
+        }
+
+        window.createCookie = createCookie;
+
+        // Read cookie
+        function readCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(";");
+          for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === " ") {
+              c = c.substring(1, c.length);
+            }
+            if (c.indexOf(nameEQ) === 0) {
+              return c.substring(nameEQ.length, c.length);
+            }
+          }
+          return null;
+        }
+        window.readCookie = readCookie;
+
+        function parametize(object) {
+          var encodedString = "";
+          for (var prop in object) {
+            if (object.hasOwnProperty(prop)) {
+              if (encodedString.length > 0) {
+                encodedString += "&";
+              }
+              encodedString += encodeURI(prop + "=" + object[prop]);
+            }
+          }
+          return encodedString;
+        }
+
+        function getVisitorId() {
+          var visitorId = readCookie("ana_visitorId");
+          if (!visitorId) {
+            visitorId = generateUUID();
+            createCookie("ana_visitorId", visitorId);
+          }
+          return visitorId;
+        }
+        window.getVisitorId = getVisitorId;
+
+        function getExperiments() {
+          try {
+            const cookie = readCookie("animaab");
+            if (cookie) {
+              const experiments = JSON.parse(cookie);
+              return Object.keys(experiments)
+                .sort()
+                .filter(name => experiments[name])
+                .map(name => {
+                  const val =
+                    typeof experiments[name] === "boolean"
+                      ? ""
+                      : "=" + experiments[name];
+                  return name + val;
+                })
+                .join(",");
+            }
+          } catch (e) {}
+          return null;
+        }
+
+        window.trackEvent = function(eventAction, params, headers) {
+          var visitorId = getVisitorId();
+
+          var args = {
+            eventCategory: "General",
+            eventAction: eventAction,
+            url: encodeURIComponent(window.location.href),
+            host: window.location.hostname,
+            path: window.location.pathname,
+            referrer: document.referrer,
+            uid: visitorId,
+            experiment: getExperiments()
+          };
+
+          if (params) {
+            args["params"] = JSON.stringify(params);
+          }
+
+          var data = parametize(args);
+          var http = new XMLHttpRequest();
+          var url = "//logs.animaapp.com/analytics/collect";
+          http.open("POST", url, true);
+          http.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+          );
+          for (const headerName in headers) {
+            const value = headers[headerName];
+            http.setRequestHeader(headerName, value);
+          }
+          http.send(data);
+        };
+
+        window.submitted = function(event) {
+          //window.trackEvent('conversion');
+        };
+
+        //window.trackEvent('pageview');
+      })();</script><script src=https://js.stripe.com/v3/ ></script><script src=https://checkout.stripe.com/checkout.js></script><script src=//cdn.headwayapp.co/widget.js></script><script>const ANIMA_PROTOTYPE_MONTHLY_STRIPE_PLAN_ID =
+        "anima-prototype-monthly-29";
+      const ANIMA_PROTOTYPE_ANNUALLY_STRIPE_PLAN_ID =
+        "anima-prototype-annually-25-1";
+      const ANIMA_PRO_MONTHLY_STRIPE_PLAN_ID = "anima-monthly-39";
+      const ANIMA_PRO_ANNUALLY_STRIPE_PLAN_ID = "anima-pro-annually-31";
+
+      const ANIMA_PROTOTYPE_MONTHLY_PAYPAL_PLAN_ID =
+        "P-9L615356WX143364PL4A62EY";
+      const ANIMA_PROTOTYPE_ANNUALLY_PAYPAL_PLAN_ID =
+        "P-8WS045422U1104428L4A62WI";
+      const ANIMA_PRO_MONTHLY_PAYPAL_PLAN_ID = "P-8DW290690C195015FL4A6ZWA";
+      const ANIMA_PRO_ANNUALLY_PAYPAL_PLAN_ID = "P-0Y9909335R883851DL4A6ZLA";
+
+      const ANIMA_PROTOTYPE_MONTHLY_PAYPAL_PLAN_ID_DEV =
+        "P-7Y423058HL6858901L36NMVY";
+      const ANIMA_PROTOTYPE_ANNUALLY_PAYPAL_PLAN_ID_DEV =
+        "P-19K066423P254805UL36NNEA";
+      const ANIMA_PRO_MONTHLY_PAYPAL_PLAN_ID_DEV = "P-5W883008BC517343YL36NN5Y";
+      const ANIMA_PRO_ANNUALLY_PAYPAL_PLAN_ID_DEV =
+        "P-8D162782P50238434L36NNRY";
+
+      const PAYPAL_LIVE_CLIENT_ID =
+        "AQYQAM0uvRq60uRfxz3jEHJ6tkVdwDyACkrO1TshmnhFwJoyaUYW6BP-8u0d7l9XR4iTHOjxLQAP3DYL";
+      const PAYPAL_SANDBOX_CLIENT_ID =
+        "AX9OTiiPpUOfFNQ3XAuq4A8jDAufFnPAVDdeudYdq-R_NGDMeizGvmLe1-jMih32E1pQ_wJQTD31md_7";
+
+      const ANIMA_FORCE_NO_TRIAL = true;</script><script>let widgetConfig = {
+        selector: ".headway",
+        account: "JrZ3qJ"
+      };
+      Headway.init(widgetConfig);</script><script src=https://browser.sentry-cdn.com/5.24.2/bundle.min.js crossorigin=anonymous></script><script id=hs-script-loader async defer src=//js.hs-scripts.com/7205540.js></script><script id=profitwell-js data-pw-auth=43e147f2f1740546d0c509671844d146>(function(i, s, o, g, r, a, m) {
+        i[o] =
+          i[o] ||
+          function() {
+            (i[o].q = i[o].q || []).push(arguments);
+          };
+        a = s.createElement(g);
+        m = s.getElementsByTagName(g)[0];
+        a.async = 1;
+        a.src =
+          r +
+          "?auth=" +
+          s.getElementById(o + "-js").getAttribute("data-pw-auth");
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "profitwell",
+        "script",
+        "https://public.profitwell.com/js/profitwell.js"
+      );</script><script>!(function(q, e, v, n, t, s) {
+        if (q.qp) return;
+        n = q.qp = function() {
+          n.qp ? n.qp.apply(n, arguments) : n.queue.push(arguments);
+        };
+        n.queue = [];
+        t = document.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = document.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, "script", "https://a.quora.com/qevents.js");
+      qp("init", "61e44f95f2bd43958d9a12b669051d46");
+      qp("track", "ViewContent");</script><noscript><img height=1 width=1 style=display:none src="https://q.quora.com/_/ad/61e44f95f2bd43958d9a12b669051d46/pixel?tag=ViewContent&noscript=1"></noscript><script>(twttr = window.twttr || {}),
+        (twttr.conversion = (function() {
+          function e(e, t) {
+            var n = !1,
+              i = !0,
+              r = e.document,
+              o = r.documentElement,
+              a = r.addEventListener,
+              s = a ? "addEventListener" : "attachEvent",
+              u = a ? "removeEventListener" : "detachEvent",
+              c = a ? "" : "on",
+              d = function(i) {
+                ("readystatechange" === i.type &&
+                  "complete" !== r.readyState) ||
+                  (("load" === i.type ? e : r)[u](c + i.type, d, !1),
+                  !n && (n = !0) && t.call(e, i.type || i));
+              },
+              f = function() {
+                try {
+                  o.doScroll("left");
+                } catch (e) {
+                  return void setTimeout(f, 50);
+                }
+                d("poll");
+              };
+            if ("complete" === r.readyState) t.call(e, "lazy");
+            else {
+              if (!a && o.doScroll) {
+                try {
+                  i = !e.frameElement;
+                } catch (e) {}
+                i && f();
+              }
+              r[s](c + "DOMContentLoaded", d, !1), e[s](c + "load", d, !1);
+            }
+          }
+          function t() {
+            (this.pixelId = ""), (this.eventQueue = [[]]);
+          }
+          var n = "//t.co/i/adsct?p_id=Twitter&p_user_id=0",
+            i =
+              "https://analytics.twitter.com/i/adsct?p_id=Twitter&p_user_id=0",
+            r = function(e, t) {
+              var n = t.toLowerCase();
+              for (var i in e)
+                if (i.toLowerCase() === n && e.hasOwnProperty(i)) return !0;
+              return !1;
+            },
+            o = function(e, t) {
+              var n = t.toLowerCase();
+              for (var i in e)
+                if (i.toLowerCase() === n && e.hasOwnProperty(i)) return e[i];
+            };
+          return (
+            (t.prototype = {
+              setPixelId: function(e) {
+                this.pixelId = e;
+              },
+              queueEvent: function(e, t) {
+                var n = this;
+                (e =
+                  "function" != typeof String.prototype.trim
+                    ? e.toLowerCase().replace(/^\s+|\s+$/g, "")
+                    : e.toLowerCase().trim()),
+                  n.eventQueue[n.eventQueue.length - 1].push({
+                    event: [e, t],
+                    pixelId: n.pixelId
+                  }),
+                  setTimeout(function() {
+                    n.sendEvents();
+                  }, 0);
+              },
+              addFlushPoint: function() {
+                var e = this;
+                0 !== e.eventQueue[e.eventQueue.length - 1].length &&
+                  e.eventQueue.push([]);
+              },
+              sendEventsWithParams: function(e, t) {
+                var n = this.getLegacyParams(e);
+                (n.events = this.stringifyObject(e)),
+                  twttr.conversion.trackPid(t, n);
+              },
+              sendEvents: function() {
+                var e = this;
+                if (0 !== e.eventQueue[0].length) {
+                  var t = e.eventQueue.shift();
+                  0 === e.eventQueue.length && e.eventQueue.push([]);
+                  for (var n = 0; n < t.length; n++)
+                    e.sendEventsWithParams([t[n].event], t[n].pixelId);
+                }
+              },
+              getLegacyParams: function(e) {
+                var t = {},
+                  n = this.isObject(e[0]) ? e[0] : {},
+                  i = this.isObject(n[1]) ? n[1] : {};
+                return (
+                  r(i, "value") && (t.tw_sale_amount = o(i, "value")),
+                  r(i, "num_items") &&
+                    (t.tw_order_quantity = o(i, "num_items")),
+                  this.isObject(o(i, "content_ids")) &&
+                    (t.tw_product_id = o(i, "content_ids")[0]),
+                  r(i, "partner_id") && (t.oct_p_id = o(i, "partner_id")),
+                  t
+                );
+              },
+              stringifyObject: function(e) {
+                return "undefined" != typeof JSON &&
+                  "function" == typeof JSON.stringify
+                  ? JSON.stringify(e)
+                  : "";
+              },
+              isObject: function(e) {
+                return Object(e) === e;
+              }
+            }),
+            (function() {
+              if (window.twq) {
+                var e = new t();
+                twq.exe = function() {
+                  var t,
+                    n = Array.prototype.slice.call(arguments),
+                    i = n[0],
+                    r = n.slice(1);
+                  switch (i) {
+                    case "init":
+                      t = e.setPixelId;
+                      break;
+                    case "track":
+                      t = e.queueEvent;
+                      break;
+                    case "new_event":
+                      t = e.addFlushPoint;
+                  }
+                  "function" == typeof t && t.apply(e, r);
+                };
+                for (var n = 0; n < twq.queue.length; n++)
+                  twq.exe.apply(null, twq.queue[n]);
+              }
+            })(),
+            {
+              trackBase: function(e, t, n, i) {
+                if ("string" == typeof t && "string" == typeof n) {
+                  var r = e + "&merch_id=" + encodeURIComponent(t);
+                  (r += "&event=" + encodeURIComponent(n)),
+                    void 0 !== i && (r += "&value=" + encodeURIComponent(i)),
+                    this.buildPixel(r);
+                }
+              },
+              trackPidBase: function(e, t, n, i) {
+                if (t) {
+                  var r = "";
+                  if ("object" == typeof n) {
+                    "tw_sale_amount" in n || (n.tw_sale_amount = 0),
+                      "tw_order_quantity" in n || (n.tw_order_quantity = 0);
+                    for (var o in n)
+                      n.hasOwnProperty(o) &&
+                        (r +=
+                          "&" +
+                          encodeURIComponent(o) +
+                          "=" +
+                          encodeURIComponent(n[o]));
+                  } else r = "&tw_sale_amount=0&tw_order_quantity=0";
+                  var a = e + "&txn_id=" + encodeURIComponent(t) + r,
+                    s = this.getIframeStatus();
+                  if (
+                    ((a += "&tw_iframe_status=" + encodeURIComponent(s.value)),
+                    s === this.IframeStatusCodes.IN_IFRAME &&
+                      "" != document.referrer)
+                  ) {
+                    a +=
+                      "&tw_document_referrer=" +
+                      encodeURIComponent(document.referrer);
+                  }
+                  var u = this.buildPixel;
+                  i &&
+                    ((a += "&tpx_cb=twttr.conversion.loadPixels"),
+                    (u = this.buildScript));
+                  a +=
+                    "&tw_document_href=" +
+                    encodeURIComponent(document.location.href);
+                  var c = this.getHiddenProp();
+                  this.isDocumentHidden()
+                    ? this.buildPixelWhenVizChange(a, c, u)
+                    : u(a);
+                }
+              },
+              track: function(e, t, r) {
+                this.trackBase(i, e, t, r), this.trackBase(n, e, t, r);
+              },
+              trackPid: function(e, t) {
+                this.trackPidBase(i, e, t, !0), this.trackPidBase(n, e, t);
+              },
+              buildScript: function(t) {
+                var n = document.createElement("script");
+                (n.src = t),
+                  n.setAttribute("type", "text/javascript"),
+                  e(window, function() {
+                    document.body.appendChild(n);
+                  });
+              },
+              cs: !0,
+              buildIframe: function(t) {
+                if (twttr.conversion.cs) {
+                  twttr.conversion.cs = !1;
+                  var n = document.createElement("iframe");
+                  (n.src = t),
+                    (n.hidden = !0),
+                    e(window, function() {
+                      document.body.appendChild(n);
+                    });
+                }
+              },
+              buildPixel: function(e) {
+                new Image().src = e;
+              },
+              isDocumentHidden: function() {
+                var e = this.getHiddenProp();
+                return e && document[e];
+              },
+              getHiddenProp: function() {
+                var e = ["webkit", "moz", "ms", "o"];
+                if ("hidden" in document) return "hidden";
+                for (var t = 0; t < e.length; t++)
+                  if (e[t] + "Hidden" in document) return e[t] + "Hidden";
+                return null;
+              },
+              buildPixelWhenVizChange: function(e, t, n) {
+                var i = t.replace(/[H|h]idden/, "") + "visibilitychange",
+                  r = function() {
+                    n(e), document.removeEventListener(i, r, !1);
+                  }.bind(this);
+                document.addEventListener(i, r, !1);
+              },
+              getIframeStatus: function() {
+                try {
+                  return this.isIframed()
+                    ? this.IframeStatusCodes.IN_IFRAME
+                    : this.IframeStatusCodes.NOT_IN_IFRAME;
+                } catch (e) {
+                  return this.IframeStatusCodes.ERROR;
+                }
+              },
+              isIframed: function() {
+                return window.self !== window.top;
+              },
+              IframeStatusCodes: {
+                NOT_IN_IFRAME: { value: 0 },
+                IN_IFRAME: { value: 1 },
+                ERROR: { value: 2 }
+              },
+              loadPixels: function(e) {
+                var t, n;
+                "hif" in e &&
+                  ((t = e.hif), t.forEach(twttr.conversion.buildIframe)),
+                  "tags" in e &&
+                    ((n = e.tags), n.forEach(twttr.conversion.buildPixel));
+              }
+            }
+          );
+        })());</script><script src="https://www.googleoptimize.com/optimize.js?id=OPT-TPFVRFH"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-105546425-1"></script><script>window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-105546425-1");</script><script src=/static/js/chunk-vendors.87c230d4.js></script><script src=/static/js/app.0c5a48bf.js></script></body></html>
